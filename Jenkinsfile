@@ -27,7 +27,13 @@ pipeline {
 		powershell '''dotnet publish ${SOLUTION_FILE_PATH} -c Release ''' 
 	}}
 	    
-	
+	stage('Deploy')
+	    {
+		    steps{
+			    powershell
+			    '''dotnet WebApi-PipelinePractice\\WebApi\\bin\\Release\\netcoreapp1.1\\publish\\WebApi.dll'''
+		    }
+	    }
 
 
     }
