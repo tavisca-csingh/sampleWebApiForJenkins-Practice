@@ -27,13 +27,7 @@ pipeline {
 		powershell '''dotnet publish ${SOLUTION_FILE_PATH} -c Release ''' 
 	}}
 	    
-	stage('Archive')
-	{
-	steps{
-	powershell '''compress-archive WebApi/artifacts published.zip -Update'''
-	archiveArtifacts artifacts:'published.zip'
-	}
-	}
+	
 
 
     }
