@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                powershell 'dotnet test ${TEST_PROJECT_PATH}'
+                powershell '''dotnet test ${TEST_PROJECT_PATH}'''
             }
         }
     }
