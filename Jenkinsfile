@@ -31,7 +31,7 @@ pipeline {
 	    {
 		    steps{
 			    powershell
-			    '''dotnet WebApi\\bin\\Release\\netcoreapp1.1\\publish\\WebApi.dll'''
+			    '''dotnet WebApi\\bin\Release\\netcoreapp1.1\\WebApi.dll'''
 		    }
 	    }
 
