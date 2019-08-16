@@ -30,8 +30,7 @@ pipeline {
 	    stage('Deploy')
 	    {
 		    steps{
-			    powershell ''' cd WebApi/artifacts'''
-			    powershell ''' dotnet WebApi.dll'''
+			    powershell ''' cd WebApi\artifacts ; dotnet WebApi.dll'''
 		    }
 	    }
 	
