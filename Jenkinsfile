@@ -17,5 +17,23 @@ pipeline {
                 powershell '''dotnet test ${TEST_PROJECT_PATH}'''
             }
         }
+		stage{'Publish'}
+		{
+		steps{
+		powershell '''dotnet publish sampleWebApiForJenkins-Practice -c Release -o artifacts''' 
+		}}
+		stage{'Archive'}
+		{
+		steps{
+		powershell '''compress-archive sampleWebApiForJenkins-Practice/artifacts published.zip -Update'''
+		archiveArtifacts artifacts:'published.zip'
+		}}
+
+
     }
+	post{
+	always
+	{
+	deleteDir()
+	}}
 }
