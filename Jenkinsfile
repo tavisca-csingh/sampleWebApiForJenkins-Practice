@@ -10,7 +10,7 @@ pipeline {
             steps {
                 powershell '''
 			dotnet restore ${SOLUTION_FILE_PATH} --source https://api.nuget.org/v3/index.json
-			dotnet build  ${SOLUTION_FILE_PATH} -p:Configuration=release -v:n
+			dotnet build  ${SOLUTION_FILE_PATH} -p:Configuration=release -v:q
 		'''
             }
         }
