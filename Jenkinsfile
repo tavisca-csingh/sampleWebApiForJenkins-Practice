@@ -24,7 +24,7 @@ pipeline {
 	stage('Publish')
 	{
 	steps{
-		powershell '''dotnet publish WebApi -c Release artifacts''' 
+		powershell '''dotnet publish WebApi -c Release -o artifacts''' 
 	}}
 	    
 	    stage('Deploy')
