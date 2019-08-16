@@ -31,7 +31,7 @@ pipeline {
 	    {
 		    steps{
 			    powershell
-			    '''dotnet WebApi\\bin\Release\\netcoreapp1.1\\WebApi.dll'''
+			    '''dotnet C:\Program Files (x86)\\Jenkins\\workspace\\WebApi-PipelinePractice\\WebApi\\bin\Release\\netcoreapp1.1\\WebApi.dll'''
 		    }
 	    }
 
