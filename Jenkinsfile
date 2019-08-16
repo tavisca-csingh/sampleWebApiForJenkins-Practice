@@ -24,13 +24,13 @@ pipeline {
 	stage('Publish')
 	{
 	steps{
-		powershell '''dotnet publish ${SOLUTION_FILE_PATH} -c Release ''' 
+		powershell '''dotnet publish WebApi -c Release artifacts''' 
 	}}
 	    
 	    stage('Deploy')
 	    {
 		    steps{
-			    powershell '''dotnet "WebApi/bin/Release/netcoreapp1.1/publish/WebApi.dll" '''
+			    powershell '''dotnet "WebApi/artifacts/WebApi.dll" '''
 		    }
 	    }
 	
