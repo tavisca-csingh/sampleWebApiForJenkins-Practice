@@ -27,15 +27,19 @@ pipeline {
 		powershell '''dotnet publish ${SOLUTION_FILE_PATH} -c Release ''' 
 	}}
 	    
-	stage('Deploy')
-	    {
-		    steps{
-			    powershell
-			    '''dotnet C:\Program Files (x86)\\Jenkins\\workspace\\WebApi-PipelinePractice\\WebApi\\bin\Release\\netcoreapp1.1\\WebApi.dll'''
-		    }
-	    }
+	stage('Archive')
+	{
+	steps{
+	powershell '''compress-archive WebApi/artifacts published.zip -Update'''
+	archiveArtifacts artifacts:'published.zip'
+	}
+	}
 
 
     }
-	
+	post{
+	always
+	{
+	deleteDir()
+	}}
 }
