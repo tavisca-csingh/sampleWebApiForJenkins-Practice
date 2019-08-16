@@ -20,12 +20,12 @@ pipeline {
 		stage('Publish')
 		{
 		steps{
-		powershell '''dotnet publish sampleWebApiForJenkins-Practice -c Release -o artifacts''' 
+		powershell '''dotnet publish WebApi -c Release -o artifacts''' 
 		}}
 		stage('Archive')
 		{
 		steps{
-		powershell '''compress-archive sampleWebApiForJenkins-Practice/artifacts published.zip -Update'''
+		powershell '''compress-archive WebApi/artifacts published.zip -Update'''
 		archiveArtifacts artifacts:'published.zip'
 		}}
 
