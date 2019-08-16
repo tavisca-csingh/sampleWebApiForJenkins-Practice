@@ -2,8 +2,8 @@ pipeline {
     agent any
     parameters {
         string(defaultValue: 'https://github.com/tavisca-csingh/sampleWebApiForJenkins-Practice.git', name: 'GIT_SSH_PATH')
-        string(defaultValue: 'WebApplication2.sln', name: 'SOLUTION_FILE_PATH')
-        string(defaultValue: 'XUnitTestProject1/WebApiXUnitTest.csproj', name: 'TEST_PROJECT_PATH')
+        string(defaultValue: 'WebAPi.sln', name: 'SOLUTION_FILE_PATH')
+        string(defaultValue: 'WebApi.Tests/WebApi.Tests.csproj', name: 'TEST_PROJECT_PATH')
     }
     stages {
         stage('Build') {
