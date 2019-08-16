@@ -30,7 +30,7 @@ pipeline {
 	    stage('Deploy')
 	    {
 		    steps{
-			    powershell '''dotnet WebApi\bin\Release\netcoreapp1.1\publish\WebApi.dll '''
+			    powershell '''dotnet WebApi\\bin\\Release\\netcoreapp1.1\\publish\\WebApi.dll '''
 		    }
 	    }
 	
