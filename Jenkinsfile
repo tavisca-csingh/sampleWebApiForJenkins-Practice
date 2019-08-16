@@ -8,32 +8,28 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                powershell '''dotnet restore ${SOLUTION_FILE_PATH} --source https://api.nuget.org/v3/index.json
-                dotnet build  ${SOLUTION_FILE_PATH} -p:Configuration=release -v:n'''
+                powershell '''
+			dotnet restore ${SOLUTION_FILE_PATH} --source https://api.nuget.org/v3/index.json
+			dotnet build  ${SOLUTION_FILE_PATH} -p:Configuration=release -v:n
+		'''
             }
         }
+	    
         stage('Test') {
             steps {
                 powershell '''dotnet test ${TEST_PROJECT_PATH}'''
             }
         }
-		stage('Publish')
-		{
-		steps{
-		powershell '''dotnet publish WebApi -c Release -o artifacts''' 
-		}}
-		stage('Archive')
-		{
-		steps{
-		powershell '''compress-archive WebApi/artifacts published.zip -Update'''
-		archiveArtifacts artifacts:'published.zip'
-		}}
+	    
+	stage('Publish')
+	{
+	steps{
+		powershell '''dotnet publish ${SOLUTION_FILE_PATH} -c Release ''' 
+	}}
+	    
+	
 
 
     }
-	post{
-	always
-	{
-	deleteDir()
-	}}
+	
 }
